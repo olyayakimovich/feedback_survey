@@ -9,7 +9,7 @@ const App = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          Sign In With Google
+          Sign In with Google
         </a>
     </div>
 )
