@@ -1,17 +1,32 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Header from '../Header/header';
+import * as actions from '../../actions/index';
 
-const App = () => (
-    <div className="App">
-        <a
-          className="App-link"
-          href="/auth/google"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Sign In with Google
-        </a>
+const Landing = () => <div>Landing</div>
+const Dashboard = () => <div>Dashboard</div>
+const SurveyNew = () => <div>SurveyNew</div>
+
+const App = ({ fetchUser }) => {
+    useEffect(() => {
+      fetchUser();
+    }, [fetchUser]);
+
+    return (
+    <div className="container">
+      <BrowserRouter>
+          <Header />
+          <Route exact path='/' component={Landing} />
+          <Route exact path='/surveys' component={Dashboard} />
+          <Route path='/surveys/new' component={SurveyNew}/>
+      </BrowserRouter>
     </div>
-)
+  )
+};
 
-export default App;
+const mapDispatchToProps =  dispatch => ({
+  fetchUser: () => dispatch(actions.fetchUser()),
+});
+
+export default connect(null, mapDispatchToProps)(App);
