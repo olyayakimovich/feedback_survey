@@ -1,9 +1,9 @@
 import { FETCH_USER } from '../actions/types';
 
 const authReducer = (state = {}, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_USER:
-      return { ...state, ...action.payload }
+      return action.payload || state;
     default:
       return state;
   }
