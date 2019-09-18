@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const renderContent = isLoggedIn => {
   return isLoggedIn ? 
@@ -20,10 +21,10 @@ const Header = ({ isLoggedIn }) => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="/" className="brand-logo">
+        <Link to={isLoggedIn ? '/surveys': '/'} className="left brand-logo">
           Logo
-        </a>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
+        </Link>
+        <ul id="nav-mobile" className="right">
           {renderContent(isLoggedIn)}
         </ul>
       </div>

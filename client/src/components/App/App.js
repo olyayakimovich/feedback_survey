@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../Header/header';
+import Landing from '../Landing/landing';
 import * as actions from '../../actions/index';
 
-const Landing = () => <div>Landing</div>
 const Dashboard = () => <div>Dashboard</div>
 const SurveyNew = () => <div>SurveyNew</div>
 
